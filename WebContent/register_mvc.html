@@ -1,0 +1,40 @@
+用户不存在，请注册
+<html>
+<head>
+<title>用户注册</title>
+<script>
+function checkName(){
+var username = f.username.value; if(username=="")	{
+alert("请输入用户名");
+}else{
+//打开一个窗口,同时向 checkName.action 发送请求window.open("checkName.action?username="+encodeURI(username), "check","menubar=no,height=300,width=400,left=300,top=80");
+}
+}
+function check(){ if(f.username.value==""){
+alert("用户名不能为空"); return false;
+}else if(f.password.value=="" || f.password.value!=f.password1.value){ alert("密码为空或两次密码不一致！");
+return false;
+}else{
+return true;
+}
+}
+</script>
+</head>
+<body>
+<center>
+
+<h1>用户注册</h1>
+<hr>
+<form name="f" method="post" action="register.action" onSubmit="return check()">
+<table>
+<tr><td align="center">用户名：<td><input type="text" name="username"><td>
+<tr><td align="center">密码：<td><input type="password" name="password">
+<tr><td align="center">密码确认：<td><input type="password" name="password1">
+<tr><td align="center">昵称：<td><input type="text" name="nickname">
+</table>
+<input type="submit" value="注册">
+<input type="reset" value="重置">
+</form>
+</center>
+</body>
+</html>
